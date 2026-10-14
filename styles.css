@@ -38,6 +38,7 @@ body {
   font: 400 17px/1.6 "Inter", system-ui, -apple-system, sans-serif;
 }
 a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 
 /* Header */
@@ -61,9 +62,7 @@ h1 {
 
 /* Sections */
 section { padding: 64px 0; border-top: 1px solid var(--line); }
-.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 32px; }
 h2 { font: 500 28px/1.2 "Fraunces", Georgia, serif; letter-spacing: -0.01em; margin: 0; }
-.see-all { font-size: 15px; font-weight: 500; color: var(--accent); text-decoration: none; white-space: nowrap; }
 
 /* Case study cards */
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -76,16 +75,13 @@ h2 { font: 500 28px/1.2 "Fraunces", Georgia, serif; letter-spacing: -0.01em; mar
   text-decoration: none;
   transition: border-color .15s, transform .15s;
 }
-.card:hover { border-color: var(--accent); transform: translateY(-2px); }
+a.card:hover { border-color: var(--accent); transform: translateY(-2px); }
 .card .tag { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
 .card h3 { font: 600 21px/1.25 "Fraunces", Georgia, serif; margin: 0 0 12px; }
 .card p { color: var(--muted); font-size: 15.5px; margin: 0 0 24px; flex: 1; }
-.card .more { font-size: 15px; font-weight: 600; color: var(--accent); }
+.card .more { font-size: 15px; font-weight: 600; color: var(--muted); }
 
-/* Background strip */
-.bg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 36px; }
-.bg-grid h3 { font-size: 15px; font-weight: 600; margin: 0 0 8px; }
-.bg-grid p { color: var(--muted); font-size: 15.5px; margin: 0; }
+/* Buttons */
 .btn {
   display: inline-block;
   background: var(--accent); color: var(--accent-ink);
@@ -96,22 +92,19 @@ h2 { font: 500 28px/1.2 "Fraunces", Georgia, serif; letter-spacing: -0.01em; mar
 .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); margin-left: 8px; }
 
 /* CTA */
-.cta { text-align: left; }
-.cta h2 { font-size: clamp(28px, 4vw, 40px); max-width: 22ch; margin-bottom: 16px; }
 .cta p { color: var(--muted); margin: 0 0 28px; max-width: 52ch; }
 
 /* Footer */
 footer { border-top: 1px solid var(--line); padding: 32px 0 48px; color: var(--muted); font-size: 14.5px; }
-footer .row { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+footer .row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
 footer a { text-decoration: none; }
 footer a:hover { color: var(--ink); }
-footer .row { align-items: center; }
 footer .links { display: flex; gap: 24px; align-items: center; }
 footer .links a { font-weight: 500; color: var(--muted); padding: 10px 0; }
 footer .links a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
 
 @media (max-width: 820px) {
-  .cards, .bg-grid { grid-template-columns: 1fr; }
+  .cards { grid-template-columns: 1fr; }
   .hero { padding-block: 64px 48px; }
 }
 @media (max-width: 560px) {
@@ -127,7 +120,6 @@ footer .links a:hover { color: var(--ink); text-decoration: underline; text-unde
 .page-head + section { border-top: 0; }
 .nav ul a[aria-current="page"] { color: var(--ink); }
 .home-links { margin-top: 36px; }
-
 
 /* Resume */
 .r-contact { color: var(--muted); font-size: 15.5px; margin: 0 0 24px; }
